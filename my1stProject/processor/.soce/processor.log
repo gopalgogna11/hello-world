@@ -1,0 +1,20 @@
+---------------------------------------SoCE Start : 12/1/2015 9:15:39 PM------------------------------------
+SoC log file path: C:\SoC\demo\processor\.soce\processor.log
+
+Merge multiple files for top document -> Start
+GenerateIpxactForAdditionalFiles() - close the Excel instance
+
+Create Ipxact for top document -> Start
+GenSocOutput() - SoC Check -> False
+Generate All output -> False
+File Path -> C:\SoC\demo\processor\processor.xlsx
+GenSocOutput() - Arguments -:  ipxact "C:\SoC\demo\processor\processor.xlsx"  -out xrsl -dir "C:\SoC\demo\processor\.soce" -log ""C:\SoC\demo\processor\.soce\log.txt"
+
+Generate soc outputs -> Start
+GenSocOutput() - SoC Check -> False
+Generate All output -> True
+File Path -> C:\SoC\demo\processor\soce\processor.ipxact.xml
+GenSocOutput() - Arguments -:   "html vhdl verilog"  "C:\SoC\demo\processor\soce\processor.ipxact.xml" -out xrsl -dir "C:\SoC\demo\processor\soce" -log "C:\SoC\demo\processor\soce\.soce\log.txt"
+SoE Error Count : 0
+
+-------------------------SoCE End : 12/1/2015 9:16:40 PM--------------------------

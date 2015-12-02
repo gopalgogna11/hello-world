@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<config>
+  <general>
+    <vendor>
+    </vendor>
+    <library>
+    </library>
+    <version>
+    </version>
+    <std_lib>
+    </std_lib>
+    <std_script>
+    </std_script>
+    <name>
+    </name>
+    <doc>
+    </doc>
+  </general>
+  <registers>
+    <regwidth>32</regwidth>
+    <unit>32</unit>
+    <bus>amba</bus>
+    <board_size>0x40000</board_size>
+    <chip_size>0x4000</chip_size>
+    <block_size>0x400</block_size>
+    <address_sorting>false</address_sorting>
+    <variants>
+      <variant isselected="true">none</variant>
+      <variant isselected="true">none</variant>
+      <variant isselected="true">none</variant>
+      <variant isselected="true">none</variant>
+      <variant isselected="true">none</variant>
+    </variants>
+  </registers>
+  <merging>
+    <files>
+      <file>
+        <name>C:\Users\Anupam\Desktop\armExample\ARM_TechCon\ahbbus22\soce\ahbbus22.ipxact.xml</name>
+        <path ref="false">C:\Users\Anupam\Desktop\armExample\ARM_TechCon\ahbbus22\soce\ahbbus22.ipxact.xml</path>
+        <type>
+          <component>false</component>
+          <design>false</design>
+          <io>true</io>
+          <registers>true</registers>
+          <electrical>false</electrical>
+          <instances>false</instances>
+          <interfaces>false</interfaces>
+          <all>false</all>
+        </type>
+        <doc>hjugvki</doc>
+      </file>
+    </files>
+  </merging>
+  <output>
+    <outdir>soce</outdir>
+    <html>true</html>
+    <vhdl>true</vhdl>
+    <ipxact>true</ipxact>
+    <verilog>true</verilog>
+    <assersions>false</assersions>
+    <datasheet generate="false">
+      <filename>{$FILENAME}_datasheet.docx</filename>
+      <headerpath>
+      </headerpath>
+      <footerpath>
+      </footerpath>
+    </datasheet>
+  </output>
+</config>

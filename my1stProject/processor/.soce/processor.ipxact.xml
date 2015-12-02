@@ -1,0 +1,1245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <spirit:vendor>spiritconsortium.org</spirit:vendor>
+   <spirit:library>Leon2RTL</spirit:library>
+   <spirit:name>processor</spirit:name>
+   <spirit:version>1.2</spirit:version>
+   <spirit:busInterfaces>
+      <spirit:busInterface sid="2,0">
+         <spirit:name>AHBClk</spirit:name>
+         <spirit:busType spirit:vendor="spiritconsortium.org" spirit:library=" busdef.clock" spirit:name=" clock_rtl" spirit:version=" 1.0"/>
+         <spirit:abstractionType spirit:vendor="spiritconsortium.org" spirit:library=" busdef.clock" spirit:name=" clock_rtl" spirit:version=" 1.0"/>
+         <spirit:slave/>
+         <spirit:portMaps>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>CLK</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>hclk</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+         </spirit:portMaps>
+      </spirit:busInterface>
+      <spirit:busInterface sid="3,0">
+         <spirit:name>AHBReset</spirit:name>
+         <spirit:busType spirit:vendor="spiritconsortium.org" spirit:library=" busdef.reset" spirit:name=" reset_rtl" spirit:version=" 1.0"/>
+         <spirit:abstractionType spirit:vendor="spiritconsortium.org" spirit:library=" busdef.reset" spirit:name=" reset_rtl" spirit:version=" 1.0"/>
+         <spirit:slave/>
+         <spirit:portMaps>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>RESETn</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>hresetn</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+         </spirit:portMaps>
+      </spirit:busInterface>
+      <spirit:busInterface sid="4,0">
+         <spirit:name>AHBmaster</spirit:name>
+         <spirit:busType spirit:vendor="amba.com" spirit:library="AMBA2" spirit:name="AHB_rtl" spirit:version="r2p0_6"/>
+         <spirit:abstractionType spirit:vendor="amba.com" spirit:library="AMBA2" spirit:name="AHB_rtl" spirit:version="r2p0_6"/>
+         <spirit:slave/>
+         <spirit:portMaps>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>HRDATA</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>hrdata</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>HGRANTx</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>hgrant</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>HADDR</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>haddr</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>HTRANS</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>htrans</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>HWRITE</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>hwrite</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>HSIZE</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>hsize</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>HBURST</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>hburst</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>HPROT</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>hprot</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>HWDATA</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>hwdata</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>HBUSREQx</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>hbusreq</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>HREADY</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>hready</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>HRESP</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>hresp</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>HCLK</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>hclk</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>HRESETn</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>hresetn</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+         </spirit:portMaps>
+      </spirit:busInterface>
+      <spirit:busInterface sid="21,0">
+         <spirit:name>APBslave</spirit:name>
+         <spirit:busType spirit:vendor="amba.com" spirit:library="AMBA2" spirit:name="APB_rtl" spirit:version="r2p0_4"/>
+         <spirit:abstractionType spirit:vendor="amba.com" spirit:library="AMBA2" spirit:name="APB_rtl" spirit:version="r2p0_4"/>
+         <spirit:slave/>
+         <spirit:portMaps>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>PADDR</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>paddr</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>PRDATA</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>prdata</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>PWRITE</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>pwrite</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>PSELx</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>psel</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>PENABLE</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>penable</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>PCLK</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>pclk</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>PRESETn</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>presetn</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+         </spirit:portMaps>
+      </spirit:busInterface>
+      <spirit:busInterface sid="30,0">
+         <spirit:name>SlaveIntController</spirit:name>
+         <spirit:busType spirit:vendor="spiritconsortium.org" spirit:library="busdef.leon2" spirit:name="IntProc_rtl" spirit:version="v1.0"/>
+         <spirit:abstractionType spirit:vendor="spiritconsortium.org" spirit:library="busdef.leon2" spirit:name="IntProc_rtl" spirit:version="v1.0"/>
+         <spirit:slave/>
+         <spirit:portMaps>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>IRL</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>irl</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>IRQVEC</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>irqvec</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>INTack</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>intack</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+         </spirit:portMaps>
+      </spirit:busInterface>
+      <spirit:busInterface sid="35,0">
+         <spirit:name>JTAG</spirit:name>
+         <spirit:busType spirit:vendor="spiritconsortium.org" spirit:library="busdef.jtag" spirit:name="jtag_rtl" spirit:version="1.0"/>
+         <spirit:abstractionType spirit:vendor="spiritconsortium.org" spirit:library="busdef.jtag" spirit:name="jtag_rtl" spirit:version="1.0"/>
+         <spirit:slave/>
+         <spirit:portMaps>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>TCK</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>tck</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>NTRST</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>ntrst</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>TMS</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>tms</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>TDI</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>tdi</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+            <spirit:portMap>
+               <spirit:logicalPort>
+                  <spirit:name>TDO</spirit:name>
+               </spirit:logicalPort>
+               <spirit:physicalPort>
+                  <spirit:name>tdo</spirit:name>
+               </spirit:physicalPort>
+            </spirit:portMap>
+         </spirit:portMaps>
+      </spirit:busInterface>
+   </spirit:busInterfaces>
+   <spirit:memoryMaps>   
+      <spirit:memoryMap>
+         <spirit:name>ambaAPB</spirit:name>        
+         <spirit:addressBlock>     
+            <spirit:name>registers</spirit:name>
+            <spirit:description/>   
+            <spirit:baseAddress>0x00</spirit:baseAddress>               
+            <spirit:range>0x20</spirit:range>               
+            <spirit:width>32</spirit:width>            
+            <spirit:register>
+               <spirit:name>Failures</spirit:name>
+               <spirit:addressOffset>0x0</spirit:addressOffset>
+               <spirit:size>32</spirit:size>
+               <spirit:reset>
+                  <spirit:value>0x0</spirit:value>
+                  <spirit:mask>0xFFFFFFFF</spirit:mask>
+               </spirit:reset>
+               <spirit:field>
+                  <spirit:name>NumFailures</spirit:name>
+                  <spirit:description>Number of failures from the AHB BFM</spirit:description>
+                  <spirit:bitOffset>0</spirit:bitOffset>
+                  <spirit:bitWidth>32</spirit:bitWidth>
+                  <spirit:access>read-only</spirit:access>
+                  <spirit:vendorExtensions>
+                     <ids:default_value xmlns:ids="http://www.agnisys.com/">00000000000000000000000000000000</ids:default_value>
+                  </spirit:vendorExtensions>
+               </spirit:field>
+            </spirit:register>            
+            <spirit:register>
+               <spirit:name>lowest1k</spirit:name>
+               <spirit:addressOffset>0x4</spirit:addressOffset>
+               <spirit:size>32</spirit:size>
+               <spirit:reset>
+                  <spirit:value>0x0</spirit:value>
+                  <spirit:mask>0xFFFFFFFF</spirit:mask>
+               </spirit:reset>
+               <spirit:field>
+                  <spirit:name>lowest1</spirit:name>
+                  <spirit:bitOffset>0</spirit:bitOffset>
+                  <spirit:bitWidth>32</spirit:bitWidth>
+                  <spirit:access>read-write</spirit:access>
+                  <spirit:vendorExtensions>
+                     <ids:default_value xmlns:ids="http://www.agnisys.com/">00000000000000000000000000000000</ids:default_value>
+                  </spirit:vendorExtensions>
+               </spirit:field>
+            </spirit:register>            
+            <spirit:register>
+               <spirit:name>midlow1k</spirit:name>
+               <spirit:addressOffset>0x8</spirit:addressOffset>
+               <spirit:size>32</spirit:size>
+               <spirit:reset>
+                  <spirit:value>0x0</spirit:value>
+                  <spirit:mask>0xFFFFFFFF</spirit:mask>
+               </spirit:reset>
+               <spirit:field>
+                  <spirit:name>midlow1</spirit:name>
+                  <spirit:bitOffset>0</spirit:bitOffset>
+                  <spirit:bitWidth>32</spirit:bitWidth>
+                  <spirit:access>read-write</spirit:access>
+                  <spirit:vendorExtensions>
+                     <ids:default_value xmlns:ids="http://www.agnisys.com/">00000000000000000000000000000000</ids:default_value>
+                  </spirit:vendorExtensions>
+               </spirit:field>
+            </spirit:register>            
+            <spirit:register>
+               <spirit:name>midhigh1k</spirit:name>
+               <spirit:addressOffset>0xC</spirit:addressOffset>
+               <spirit:size>32</spirit:size>
+               <spirit:reset>
+                  <spirit:value>0x0</spirit:value>
+                  <spirit:mask>0xFFFFFFFF</spirit:mask>
+               </spirit:reset>
+               <spirit:field>
+                  <spirit:name>midhigh1k</spirit:name>
+                  <spirit:bitOffset>0</spirit:bitOffset>
+                  <spirit:bitWidth>32</spirit:bitWidth>
+                  <spirit:access>read-write</spirit:access>
+                  <spirit:vendorExtensions>
+                     <ids:default_value xmlns:ids="http://www.agnisys.com/">00000000000000000000000000000000</ids:default_value>
+                  </spirit:vendorExtensions>
+               </spirit:field>
+            </spirit:register>            
+            <spirit:register>
+               <spirit:name>highest1kx7_0</spirit:name>
+               <spirit:addressOffset>0x10</spirit:addressOffset>
+               <spirit:size>32</spirit:size>
+               <spirit:reset>
+                  <spirit:value>0x0</spirit:value>
+                  <spirit:mask>0xFFFFFFFF</spirit:mask>
+               </spirit:reset>
+               <spirit:field>
+                  <spirit:name>highest7</spirit:name>
+                  <spirit:bitOffset>0</spirit:bitOffset>
+                  <spirit:bitWidth>32</spirit:bitWidth>
+                  <spirit:access>read-write</spirit:access>
+                  <spirit:vendorExtensions>
+                     <ids:default_value xmlns:ids="http://www.agnisys.com/">00000000000000000000000000000000</ids:default_value>
+                  </spirit:vendorExtensions>
+               </spirit:field>
+            </spirit:register>            
+            <spirit:register>
+               <spirit:name>highest1kx15_8</spirit:name>
+               <spirit:addressOffset>0x14</spirit:addressOffset>
+               <spirit:size>32</spirit:size>
+               <spirit:reset>
+                  <spirit:value>0x0</spirit:value>
+                  <spirit:mask>0xFFFFFFFF</spirit:mask>
+               </spirit:reset>
+               <spirit:field>
+                  <spirit:name>highest1</spirit:name>
+                  <spirit:bitOffset>0</spirit:bitOffset>
+                  <spirit:bitWidth>32</spirit:bitWidth>
+                  <spirit:access>read-write</spirit:access>
+                  <spirit:vendorExtensions>
+                     <ids:default_value xmlns:ids="http://www.agnisys.com/">00000000000000000000000000000000</ids:default_value>
+                  </spirit:vendorExtensions>
+               </spirit:field>
+            </spirit:register>            
+            <spirit:register>
+               <spirit:name>highest1kx23_16</spirit:name>
+               <spirit:addressOffset>0x18</spirit:addressOffset>
+               <spirit:size>32</spirit:size>
+               <spirit:reset>
+                  <spirit:value>0x0</spirit:value>
+                  <spirit:mask>0xFFFFFFFF</spirit:mask>
+               </spirit:reset>
+               <spirit:field>
+                  <spirit:name>highest12</spirit:name>
+                  <spirit:bitOffset>0</spirit:bitOffset>
+                  <spirit:bitWidth>32</spirit:bitWidth>
+                  <spirit:access>read-write</spirit:access>
+                  <spirit:vendorExtensions>
+                     <ids:default_value xmlns:ids="http://www.agnisys.com/">00000000000000000000000000000000</ids:default_value>
+                  </spirit:vendorExtensions>
+               </spirit:field>
+            </spirit:register>            
+            <spirit:register>
+               <spirit:name>highest1kx31_24</spirit:name>
+               <spirit:addressOffset>0x1C</spirit:addressOffset>
+               <spirit:size>32</spirit:size>
+               <spirit:reset>
+                  <spirit:value>0x0</spirit:value>
+                  <spirit:mask>0xFFFFFFFF</spirit:mask>
+               </spirit:reset>
+               <spirit:field>
+                  <spirit:name>highest31</spirit:name>
+                  <spirit:bitOffset>0</spirit:bitOffset>
+                  <spirit:bitWidth>32</spirit:bitWidth>
+                  <spirit:access>read-write</spirit:access>
+                  <spirit:vendorExtensions>
+                     <ids:default_value xmlns:ids="http://www.agnisys.com/">00000000000000000000000000000000</ids:default_value>
+                  </spirit:vendorExtensions>
+               </spirit:field>
+            </spirit:register>         
+         </spirit:addressBlock>
+         <spirit:addressUnitBits>8</spirit:addressUnitBits>
+         <spirit:vendorExtensions>
+            <ids:type xmlns:ids="http://www.agnisys.com/">true</ids:type>
+         </spirit:vendorExtensions>
+      </spirit:memoryMap>
+   </spirit:memoryMaps>
+   <spirit:model>
+      <spirit:views>
+         <spirit:view sid="2,1">
+            <spirit:name>Specification Type</spirit:name>
+            <spirit:envIdentifier>::Hierarchy</spirit:envIdentifier>
+         </spirit:view>
+         <spirit:view sid="4,1">
+            <spirit:name>AMS Discipline</spirit:name>
+            <spirit:envIdentifier>::Hierarchy</spirit:envIdentifier>
+         </spirit:view>
+      </spirit:views>
+      <spirit:ports>
+         <spirit:port sid="2,1">
+            <spirit:name>rst_an</spirit:name>
+            <spirit:displayName>rst_an</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>in</spirit:direction>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="2,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="2,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="3,1">
+            <spirit:name>clk</spirit:name>
+            <spirit:displayName>clk</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>in</spirit:direction>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="3,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="3,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="4,1">
+            <spirit:name>clkn</spirit:name>
+            <spirit:displayName>clkn</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>in</spirit:direction>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="4,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="4,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="5,1">
+            <spirit:name>pclk</spirit:name>
+            <spirit:displayName>pclk</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>in</spirit:direction>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="5,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="5,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="6,1">
+            <spirit:name>presetn</spirit:name>
+            <spirit:displayName>presetn</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>in</spirit:direction>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="6,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="6,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="7,1">
+            <spirit:name>psel</spirit:name>
+            <spirit:displayName>psel</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>in</spirit:direction>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="7,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="7,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="8,1">
+            <spirit:name>penable</spirit:name>
+            <spirit:displayName>penable</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>in</spirit:direction>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="8,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="8,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="9,1">
+            <spirit:name>paddr</spirit:name>
+            <spirit:displayName>paddr</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>in</spirit:direction>
+               <spirit:vector>
+                  <spirit:left>11</spirit:left>
+                  <spirit:right>0</spirit:right>
+               </spirit:vector>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="9,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="9,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="10,1">
+            <spirit:name>pwrite</spirit:name>
+            <spirit:displayName>pwrite</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>in</spirit:direction>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="10,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="10,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="11,1">
+            <spirit:name>pwdata</spirit:name>
+            <spirit:displayName>pwdata</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>in</spirit:direction>
+               <spirit:vector>
+                  <spirit:left>31</spirit:left>
+                  <spirit:right>0</spirit:right>
+               </spirit:vector>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="11,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="11,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="12,1">
+            <spirit:name>prdata</spirit:name>
+            <spirit:displayName>prdata</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>out</spirit:direction>
+               <spirit:vector>
+                  <spirit:left>31</spirit:left>
+                  <spirit:right>0</spirit:right>
+               </spirit:vector>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="12,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="12,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="13,1">
+            <spirit:name>hclk</spirit:name>
+            <spirit:displayName>hclk</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>in</spirit:direction>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="13,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="13,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="14,1">
+            <spirit:name>hresetn</spirit:name>
+            <spirit:displayName>hresetn</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>in</spirit:direction>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="14,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="14,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="15,1">
+            <spirit:name>hgrant</spirit:name>
+            <spirit:displayName>hgrant</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>in</spirit:direction>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="15,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="15,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="16,1">
+            <spirit:name>hready</spirit:name>
+            <spirit:displayName>hready</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>in</spirit:direction>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="16,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="16,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="17,1">
+            <spirit:name>hresp</spirit:name>
+            <spirit:displayName>hresp</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>in</spirit:direction>
+               <spirit:vector>
+                  <spirit:left>1</spirit:left>
+                  <spirit:right>0</spirit:right>
+               </spirit:vector>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="17,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="17,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="18,1">
+            <spirit:name>hrdata</spirit:name>
+            <spirit:displayName>hrdata</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>in</spirit:direction>
+               <spirit:vector>
+                  <spirit:left>31</spirit:left>
+                  <spirit:right>0</spirit:right>
+               </spirit:vector>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="18,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="18,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="19,1">
+            <spirit:name>hbusreq</spirit:name>
+            <spirit:displayName>hbusreq</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>out</spirit:direction>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="19,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="19,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="20,1">
+            <spirit:name>htrans</spirit:name>
+            <spirit:displayName>htrans</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>out</spirit:direction>
+               <spirit:vector>
+                  <spirit:left>1</spirit:left>
+                  <spirit:right>0out</spirit:right>
+               </spirit:vector>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="20,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="20,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="21,1">
+            <spirit:name>haddr</spirit:name>
+            <spirit:displayName>haddr</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>out</spirit:direction>
+               <spirit:vector>
+                  <spirit:left>31</spirit:left>
+                  <spirit:right>0</spirit:right>
+               </spirit:vector>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="21,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="21,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="22,1">
+            <spirit:name>hwrite</spirit:name>
+            <spirit:displayName>hwrite</spirit:displayName>
+            <spirit:description>{default=0x0}</spirit:description>
+            <spirit:wire>
+               <spirit:direction>out</spirit:direction>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="22,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="22,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="23,1">
+            <spirit:name>hsize</spirit:name>
+            <spirit:displayName>hsize</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>out</spirit:direction>
+               <spirit:vector>
+                  <spirit:left>2</spirit:left>
+                  <spirit:right>0</spirit:right>
+               </spirit:vector>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="23,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="23,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="24,1">
+            <spirit:name>hburst</spirit:name>
+            <spirit:displayName>hburst</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>out</spirit:direction>
+               <spirit:vector>
+                  <spirit:left>2</spirit:left>
+                  <spirit:right>0</spirit:right>
+               </spirit:vector>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="24,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="24,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="25,1">
+            <spirit:name>hprot</spirit:name>
+            <spirit:displayName>hprot</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>out</spirit:direction>
+               <spirit:vector>
+                  <spirit:left>3</spirit:left>
+                  <spirit:right>0</spirit:right>
+               </spirit:vector>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="25,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="25,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="26,1">
+            <spirit:name>hwdata</spirit:name>
+            <spirit:displayName>hwdata</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>out</spirit:direction>
+               <spirit:vector>
+                  <spirit:left>31</spirit:left>
+                  <spirit:right>0</spirit:right>
+               </spirit:vector>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="26,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="26,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="27,1">
+            <spirit:name>irl</spirit:name>
+            <spirit:displayName>irl</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>in</spirit:direction>
+               <spirit:vector>
+                  <spirit:left>3</spirit:left>
+                  <spirit:right>0</spirit:right>
+               </spirit:vector>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="27,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="27,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="28,1">
+            <spirit:name>intack</spirit:name>
+            <spirit:displayName>intack</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>out</spirit:direction>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="28,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="28,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="29,1">
+            <spirit:name>irqvec</spirit:name>
+            <spirit:displayName>irqvec</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>out</spirit:direction>
+               <spirit:vector>
+                  <spirit:left>3</spirit:left>
+                  <spirit:right>0</spirit:right>
+               </spirit:vector>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="29,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="29,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="30,1">
+            <spirit:name>tck</spirit:name>
+            <spirit:displayName>tck</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>in</spirit:direction>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="30,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="30,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="31,1">
+            <spirit:name>ntrst</spirit:name>
+            <spirit:displayName>ntrst</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>in</spirit:direction>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="31,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="31,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="32,1">
+            <spirit:name>tms</spirit:name>
+            <spirit:displayName>tms</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>in</spirit:direction>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="32,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="32,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="33,1">
+            <spirit:name>tdi</spirit:name>
+            <spirit:displayName>tdi</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>in</spirit:direction>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="33,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="33,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="34,1">
+            <spirit:name>tdo</spirit:name>
+            <spirit:displayName>tdo</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>out</spirit:direction>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="34,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="34,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+         <spirit:port sid="35,1">
+            <spirit:name>SimDone</spirit:name>
+            <spirit:displayName>SimDone</spirit:displayName>
+            <spirit:description/>
+            <spirit:wire>
+               <spirit:direction>out</spirit:direction>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef sid="35,3">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>specification type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef sid="35,4">
+                     <spirit:typeName/>
+                     <spirit:viewNameRef>ams discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+            </spirit:wire>
+         </spirit:port>
+      </spirit:ports>
+      <spirit:modelParameters>
+         <spirit:modelParameter spirit:dataType="integer" sid="3,2">
+            <spirit:name>local_memory_start_addr</spirit:name>
+            <spirit:description>example to show, how to write parameteres.</spirit:description>
+            <spirit:value>($start_addr_local ) / 65536</spirit:value>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="integer" sid="4,2">
+            <spirit:name>local_memory_addr_bits</spirit:name>
+            <spirit:value>log($range_local +1)</spirit:value>
+         </spirit:modelParameter>
+      </spirit:modelParameters>
+   </spirit:model>
+   <spirit:choices>
+      <spirit:choice sid="2,0">
+         <spirit:name>BaseAddressChoices</spirit:name>
+         <spirit:enumeration spirit:text="0x00000000">0x00000000</spirit:enumeration>
+         <spirit:enumeration spirit:text="0x10000000">0x10000000</spirit:enumeration>
+         <spirit:enumeration spirit:text="0x20000000">0x20000000</spirit:enumeration>
+         <spirit:enumeration spirit:text="0x30000000">0x30000000</spirit:enumeration>
+         <spirit:enumeration spirit:text="0x40000000">0x40000000</spirit:enumeration>
+         <spirit:enumeration spirit:text="0x50000000">0x50000000</spirit:enumeration>
+         <spirit:enumeration spirit:text="0x60000000">0x60000000</spirit:enumeration>
+         <spirit:enumeration spirit:text="0x70000000">0x70000000</spirit:enumeration>
+         <spirit:enumeration spirit:text="0x80000000">0x80000000</spirit:enumeration>
+         <spirit:enumeration spirit:text="0x90000000">0x90000000</spirit:enumeration>
+         <spirit:enumeration spirit:text="0xa0000000">0xa0000000</spirit:enumeration>
+         <spirit:enumeration spirit:text="0xb0000000">0xb0000000</spirit:enumeration>
+         <spirit:enumeration spirit:text="0xc0000000">0xc0000000</spirit:enumeration>
+         <spirit:enumeration spirit:text="0xd0000000">0xd0000000</spirit:enumeration>
+         <spirit:enumeration spirit:text="0xe0000000">0xe0000000</spirit:enumeration>
+         <spirit:enumeration spirit:text="0xf0000000">0xf0000000</spirit:enumeration>
+      </spirit:choice>
+      <spirit:choice sid="19,0">
+         <spirit:name>RangeChoice</spirit:name>
+         <spirit:enumeration spirit:text="0.0">0.0</spirit:enumeration>
+         <spirit:enumeration spirit:text="128.0">128.0</spirit:enumeration>
+         <spirit:enumeration spirit:text="256.0">256.0</spirit:enumeration>
+         <spirit:enumeration spirit:text="1k">1024.0</spirit:enumeration>
+         <spirit:enumeration spirit:text="2k">2048.0</spirit:enumeration>
+         <spirit:enumeration spirit:text="4k">4096.0</spirit:enumeration>
+         <spirit:enumeration spirit:text="8k">8192.0</spirit:enumeration>
+         <spirit:enumeration spirit:text="16k">16384.0</spirit:enumeration>
+      </spirit:choice>
+   </spirit:choices>
+   <spirit:description>32-bit CPU microprocessor core, based on the SPARC-V8 RISC architecture and instruction set</spirit:description>
+   <spirit:vendorExtensions>
+      <groups>
+         <group sid="2,1" name="">
+            <functions>
+               <function sid="2,2" name="">
+                  <corners/>
+               </function>
+            </functions>
+         </group>
+      </groups>
+      <features>
+         <feature>1 AHB Master</feature>
+         <feature>1 APBSlave</feature>
+         <feature>SlaveIntController for Interrupt Handeling</feature>
+         <feature>JTAG</feature>
+      </features>
+      <applications>
+         <application>used in system-on-a-chip (SOC) designs both in research and commercial settings.</application>
+      </applications>
+      <operating_conditions>
+         <symbol name="34">
+            <min>min</min>
+            <typ>typical</typ>
+            <max>max</max>
+            <unit>unit</unit>
+            <spirit:description>description</spirit:description>
+         </symbol>
+      </operating_conditions>
+      <max_rating>
+         <symbol name="43">
+            <min>min</min>
+            <typ>typical</typ>
+            <max>max</max>
+            <unit>unit</unit>
+            <spirit:description>description</spirit:description>
+         </symbol>
+      </max_rating>
+      <designers>
+         <designer name="name">
+            <email>email</email>
+         </designer>
+      </designers>
+      <dieSize/>
+      <dieSize/>
+      <FabProcess>
+         <process name="Process">TSMC 0.13um BCD Cu 1P6M 1.5V/5V/36V with ESD, HiR, 3 Implants, MIM, UTM, OTP 8in - 41L &gt;5000w/month</process>
+      </FabProcess>
+      <esd>
+         <symbol name="22">
+            <min>min</min>
+            <typ>typical</typ>
+            <max>max</max>
+            <unit>Unit</unit>
+            <spirit:description>Description</spirit:description>
+         </symbol>
+      </esd>
+   </spirit:vendorExtensions>
+</spirit:component>

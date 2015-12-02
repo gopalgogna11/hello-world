@@ -1,0 +1,855 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <spirit:vendor>Agnisys</spirit:vendor>
+   <spirit:library>mixed_signal</spirit:library>
+   <spirit:name>ISL91305_Master_Bandgap_IP</spirit:name>
+   <spirit:version>1.0</spirit:version>
+   <spirit:busInterfaces/>
+   <spirit:channels/>
+   <spirit:model>
+      <spirit:views>
+         <spirit:view>
+            <spirit:name>spec_type</spirit:name>
+            <spirit:envIdentifier>::Hierarchy</spirit:envIdentifier>
+            <spirit:hierarchyRef spirit:library="Leon2RTL" spirit:name="design_Leon2Platform"
+               spirit:vendor="spiritconsortium.org" spirit:version="1.0"/>
+            <spirit:vendorExtensions>
+               <ref
+                  ipxactpath="C:\Users\Anupam\Desktop\SoC-E\FinalExample\.soce\MasterBandGapDesign.ipxact.xml"
+                  >C:\Users\Anupam\Desktop\SoC-E\FinalExample\MasterBandGapDesign.xlsx</ref>
+            </spirit:vendorExtensions>
+         </spirit:view>
+         <spirit:view>
+            <spirit:name>AMS_Descipline</spirit:name>
+            <spirit:envIdentifier>::Hierarchy</spirit:envIdentifier>
+            <spirit:hierarchyRef/>
+         </spirit:view>
+      </spirit:views>
+      <spirit:ports>
+         <spirit:port>
+            <spirit:name>VBAT</spirit:name>
+            <spirit:displayName>VBAT</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>vsupply</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>electrical</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>in</spirit:direction>
+            </spirit:wire>
+            <spirit:description>5V Power source</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>En_5V</spirit:name>
+            <spirit:displayName>En_5V</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>digital</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>logic</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>in</spirit:direction>
+            </spirit:wire>
+            <spirit:description>Enable bandgap. The bandgap is enabled when this signal is above
+               NMOS threshold, typically 1V.</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>VBG</spirit:name>
+            <spirit:displayName>VBG</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>analog_v</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>electrical</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>out</spirit:direction>
+            </spirit:wire>
+            <spirit:description>Bandgap output, typically 1.222V</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>NBL</spirit:name>
+            <spirit:displayName>NBL</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>vsupply</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>electrical</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>in</spirit:direction>
+            </spirit:wire>
+            <spirit:description>NBL connection</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>VDD</spirit:name>
+            <spirit:displayName>VDD</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>vsupply</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>electrical</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>in</spirit:direction>
+            </spirit:wire>
+            <spirit:description>1.5V digital supply, it won't be ready until Bandgap and LDO are
+               ready</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>VDDOK_5V</spirit:name>
+            <spirit:displayName>VDDOK_5V</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>digital</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>logic</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>in</spirit:direction>
+            </spirit:wire>
+            <spirit:description>5V LDO POR signal. Turns 1 when LDO output is in regulation
+               range.</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>Regs_rd</spirit:name>
+            <spirit:displayName>Regs_rd</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>digital</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>logic</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>in</spirit:direction>
+            </spirit:wire>
+            <spirit:description>1.5V logic input, rise when registers are
+               ready.</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>I_BG_Trim</spirit:name>
+            <spirit:displayName>I_BG_Trim</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>digital</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>logic</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>in</spirit:direction>
+               <spirit:vector>
+                  <spirit:left>7</spirit:left>
+                  <spirit:right>0</spirit:right>
+               </spirit:vector>
+            </spirit:wire>
+            <spirit:description>BG 8 bits trim, 1.5V rating, includes the tempco correction.
+               Default: 0x00.</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>Disab_OSC</spirit:name>
+            <spirit:displayName>Disab_OSC</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>digital</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>logic</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>in</spirit:direction>
+            </spirit:wire>
+            <spirit:description>ringOSC enable signal, 1.5V rating. Default: 0</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>OSCTrim</spirit:name>
+            <spirit:displayName>OSCTrim</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>digital</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>logic</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>in</spirit:direction>
+               <spirit:vector>
+                  <spirit:left>2</spirit:left>
+                  <spirit:right>0</spirit:right>
+               </spirit:vector>
+            </spirit:wire>
+            <spirit:description>3 bits oscillator frequency trim. Default: 3'b000 -- frequncy =
+               240KHz</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>Coll_Sel</spirit:name>
+            <spirit:displayName>Coll_Sel</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>digital</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>logic</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>in</spirit:direction>
+            </spirit:wire>
+            <spirit:description>Connect the collectors to VBAT or source follower. 0: short to VBAT,
+               1: connect to source</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>TC_Conf</spirit:name>
+            <spirit:displayName>TC_Conf</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>digital</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>logic</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>in</spirit:direction>
+               <spirit:vector>
+                  <spirit:left>1</spirit:left>
+                  <spirit:right>0</spirit:right>
+               </spirit:vector>
+            </spirit:wire>
+            <spirit:description>1.5V control logic. Default: 0. 0: choose digital TC correction, 1:
+               choose analog TC correction.</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>BGOK_5V</spirit:name>
+            <spirit:displayName>BGOK_5V</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>digital</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>logic</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>out</spirit:direction>
+            </spirit:wire>
+            <spirit:description>5V logic output, rise when VBG is above 5V NMOS threshold with 63
+               clock cycle delay</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>BGhi_5V</spirit:name>
+            <spirit:displayName>BGhi_5V</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>digital</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>logic</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>out</spirit:direction>
+            </spirit:wire>
+            <spirit:description>5V logic output, rise when VBG is above 5V NMOS
+               threshold</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>IBN50n</spirit:name>
+            <spirit:displayName>IBN50n</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>analog_i</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>electrical</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>out</spirit:direction>
+               <spirit:vector>
+                  <spirit:left>5</spirit:left>
+                  <spirit:right>0</spirit:right>
+               </spirit:vector>
+            </spirit:wire>
+            <spirit:description>50nA OTC NMOS current</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>IBN100n</spirit:name>
+            <spirit:displayName>IBN100n</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>analog_i</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>electrical</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>out</spirit:direction>
+               <spirit:vector>
+                  <spirit:left>3</spirit:left>
+                  <spirit:right>0</spirit:right>
+               </spirit:vector>
+            </spirit:wire>
+            <spirit:description>100nA OTC NMOS current</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>IBN150n</spirit:name>
+            <spirit:displayName>IBN150n</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>analog_i</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>electrical</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>out</spirit:direction>
+               <spirit:vector>
+                  <spirit:left>1</spirit:left>
+                  <spirit:right>0</spirit:right>
+               </spirit:vector>
+            </spirit:wire>
+            <spirit:description>150nA OTC NMOS current for house keeping
+               biasing</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>TEST0</spirit:name>
+            <spirit:displayName>TEST0</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>digital</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>logic</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>in</spirit:direction>
+               <spirit:vector>
+                  <spirit:left>2</spirit:left>
+                  <spirit:right>0</spirit:right>
+               </spirit:vector>
+            </spirit:wire>
+            <spirit:description>1.5V logic selects 8 analog signal to test mux bus 2. V1p5A, Vosc,
+               Bglo, BGOK, IBM150n, V1p5D, VBG, Agnd</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>TEST1</spirit:name>
+            <spirit:displayName>TEST1</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>digital</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>logic</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>in</spirit:direction>
+               <spirit:vector>
+                  <spirit:left>2</spirit:left>
+                  <spirit:right>0</spirit:right>
+               </spirit:vector>
+            </spirit:wire>
+            <spirit:description>1.5V logic selects 8 analog signal to test mux bus
+               3.</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>EN_Test</spirit:name>
+            <spirit:displayName>EN_Test</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>digital</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>logic</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>in</spirit:direction>
+               <spirit:vector>
+                  <spirit:left>1</spirit:left>
+                  <spirit:right>0</spirit:right>
+               </spirit:vector>
+            </spirit:wire>
+            <spirit:description>1.5V logic enables analog test mux bus 2 and 3</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>OutP_5V</spirit:name>
+            <spirit:displayName>OutP_5V</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>analog_v</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>electrical</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>out</spirit:direction>
+            </spirit:wire>
+            <spirit:description>Test output controlled by EN_Test[0] and
+               TEST0[2:0]</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>OutM_5V</spirit:name>
+            <spirit:displayName>OutM_5V</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>analog_v</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>electrical</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>out</spirit:direction>
+            </spirit:wire>
+            <spirit:description>Test output controlled by EN_Test[1] and
+               TEST1[2:0]</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>Clk</spirit:name>
+            <spirit:displayName>Clk</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>digital, clock</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>logic</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>out</spirit:direction>
+            </spirit:wire>
+            <spirit:description>RingOSC 1.5V clock output, typically 240kHz. Send to higher level
+               for digital test mux.</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>Clkx</spirit:name>
+            <spirit:displayName>Clkx</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>digital, clock</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>logic</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>out</spirit:direction>
+            </spirit:wire>
+            <spirit:description>RingOSC 1.5V clock output, typically 240kHz.</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>Agnd</spirit:name>
+            <spirit:displayName>Agnd</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>vsupply</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>electrical</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>in</spirit:direction>
+            </spirit:wire>
+            <spirit:description>Analog Ground.</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>Dgnd</spirit:name>
+            <spirit:displayName>Dgnd</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>vsupply</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>electrical</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>in</spirit:direction>
+            </spirit:wire>
+            <spirit:description>Digital Ground</spirit:description>
+         </spirit:port>
+         <spirit:port>
+            <spirit:name>Vsub</spirit:name>
+            <spirit:displayName>Vsub</spirit:displayName>
+            <spirit:wire>
+               <spirit:wireTypeDefs>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>vsupply</spirit:typeName>
+                     <spirit:viewNameRef>spec_type</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+                  <spirit:wireTypeDef>
+                     <spirit:typeName>electrical</spirit:typeName>
+                     <spirit:viewNameRef>ams_discipline</spirit:viewNameRef>
+                  </spirit:wireTypeDef>
+               </spirit:wireTypeDefs>
+               <spirit:direction>in</spirit:direction>
+            </spirit:wire>
+            <spirit:description>Substrate connection</spirit:description>
+         </spirit:port>
+      </spirit:ports>
+      <spirit:modelParameters>
+         <spirit:modelParameter spirit:dataType="integer">
+            <spirit:name>in_signal_width</spirit:name>
+            <spirit:value>89.0</spirit:value>
+            <spirit:description>Aggregated Input Signal Width</spirit:description>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="integer">
+            <spirit:name>test_sig_width</spirit:name>
+            <spirit:value>216.0</spirit:value>
+            <spirit:description>Internal Test Signal Width</spirit:description>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="integer">
+            <spirit:name>ADDR_WIDTH</spirit:name>
+            <spirit:value>8.0</spirit:value>
+            <spirit:description>System Bus Address Width</spirit:description>
+         </spirit:modelParameter>
+         <spirit:modelParameter spirit:dataType="integer">
+            <spirit:name>DATA_WIDTH</spirit:name>
+            <spirit:value>8.0</spirit:value>
+            <spirit:description>System Bus Data Width</spirit:description>
+         </spirit:modelParameter>
+      </spirit:modelParameters>
+   </spirit:model>
+   <spirit:choices/>
+   <spirit:vendorExtensions>
+      <groups>
+         <group name="VBG Voltage">
+            <functions>
+               <function name="VBG.v" symbol="Vref">
+                  <corners>
+                     <corner req.typical="1.223" unit="Volt">Typical_Corner</corner>
+                  </corners>
+                  <doc>VBG Nominal Voltage</doc>
+               </function>
+               <function name="Accuracy(VBG.v, Vref.typical)" symbol="Vrefa">
+                  <corners>
+                     <corner req.min="-0.2" req.max="0.2" unit="%">Boldface_Corner</corner>
+                     <corner test.min="VBAT.v=2.8" test.max="VBAT.v=5.5" req.min="-0.5"
+                        req.max="0.5" unit="%">Boldface_Corner</corner>
+                     <corner test.typical="Low Power Mode" req.min="-1.0" req.max="1.0" unit="%"
+                        >Boldface_Corner</corner>
+                  </corners>
+                  <doc>VBG Accurcy Post Trim</doc>
+               </function>
+               <function name="Value_Range(VBG.v, Vref.typical)" symbol="Vref_retrim">
+                  <corners>
+                     <corner test.typical="I_BG_Trim = 0x00  without chopper(??)" req.min="90.0"
+                        req.max="110.0" unit="%">Boldface_Corner</corner>
+                     <corner test.typical="I_BG_Trim = 0x00 with chopper (??)" req.min="98.0"
+                        req.max="102.0" unit="%">Boldface_Corner</corner>
+                  </corners>
+                  <doc>Trim code = 00</doc>
+               </function>
+               <function name="Accuracy(VBG.v, Vref.typical)" symbol="Vref_trimrange">
+                  <corners>
+                     <corner test.min="I_BG_Trim = 0x00" test.max="I_BG_Trim = 0xFF" req.min="-5.2"
+                        req.max="5.2" unit="%">Boldface_Corner</corner>
+                  </corners>
+                  <doc>Trim code 8 bits, 1LSB = 0.5mV</doc>
+               </function>
+            </functions>
+         </group>
+         <group name="SUPPLY CURRENT">
+            <functions>
+               <function name="VBG.i" symbol="Inom">
+                  <corners>
+                     <corner req.max="8.0" req.typical="5.0" unit="uA">Boldface_Corner</corner>
+                  </corners>
+                  <doc>VBG Supply Current</doc>
+               </function>
+               <function name="Temp_Coef(VBG.v, Vref.typical, Tj)" symbol="VBG_iq_tc">
+                  <corners>
+                     <corner req.typical="0.15" unit="%/ °C">Boldface_Corner</corner>
+                  </corners>
+                  <doc>VBG supply current temp coefficient (PTAT)</doc>
+               </function>
+            </functions>
+         </group>
+         <group name="PSRR (with Coll_sel = 0 and 50 ohm res at VBAT)">
+            <functions>
+               <function name="PSRR(VBG.v, VBAT.v)" symbol="PSRR">
+                  <corners>
+                     <corner test.min="VBAT.f = 50Hz" test.max="VBAT.f = 1kHz"
+                        test.typical="Coll_sel = 0" req.min="45.0" req.typical="70.0" unit="dB"
+                        >Typical_Corner</corner>
+                     <corner test.min="VBAT.f = 1kHz" test.max="VBAT.f = 10kHz"
+                        test.typical="Coll_sel = 0" req.min="30.0" unit="dB">Typical_Corner</corner>
+                     <corner test.min="VBAT.f = 10kHz" test.max="VBAT.f = 100kHz"
+                        test.typical="Coll_sel = 0" req.min="45.0" unit="dB">Typical_Corner</corner>
+                     <corner test.min="VBAT.f = 100kHz" test.max="VBAT.f = 1MHz"
+                        test.typical="Coll_sel = 0" req.min="50.0" unit="dB">Typical_Corner</corner>
+                  </corners>
+                  <doc>VBG PSRR 50 Hz to 1kHz</doc>
+                  <doc>VBG PSRR 1kHz to 10kHz</doc>
+                  <doc>VBG PSRR 10kHz to 100kHz</doc>
+                  <doc>VBG PSRR 100kHz to 1MHz</doc>
+               </function>
+            </functions>
+         </group>
+         <group name="PSRR (with Coll_sel = 1 and 50 ohm res at VBAT)">
+            <functions>
+               <function name="PSRR(VBG.v, VBAT.v)" symbol="PSRR">
+                  <corners>
+                     <corner test.min="VBAT.f = 50Hz" test.max="VBAT.f = 1kHz"
+                        test.typical="Coll_sel = 1" req.min="70.0" unit="dB">Typical_Corner</corner>
+                     <corner test.min="VBAT.f = 1kHz" test.max="VBAT.f = 10kHz"
+                        test.typical="Coll_sel = 1" req.min="45.0" unit="dB">Typical_Corner</corner>
+                     <corner test.min="VBAT.f = 10kHz" test.max="VBAT.f = 100kHz"
+                        test.typical="Coll_sel = 1" req.min="60.0" unit="dB">Typical_Corner</corner>
+                     <corner test.min="VBAT.f = 100kHz" test.max="VBAT.f = 1MHz"
+                        test.typical="Coll_sel = 1" req.min="60.0" unit="dB">Typical_Corner</corner>
+                  </corners>
+                  <doc>VBG PSRR 50 Hz to 1kHz</doc>
+                  <doc>VBG PSRR 1kHz to 10kHz</doc>
+                  <doc>VBG PSRR 10kHz to 100kHz</doc>
+                  <doc>VBG PSRR 100kHz to 1MHz</doc>
+               </function>
+            </functions>
+         </group>
+         <group name="Voltage Under Noise">
+            <functions>
+               <function name="abs(VBG.v - Vref.typical)" symbol="Noise">
+                  <corners>
+                     <corner req.typical="1.0" unit="mV">Typical_Corner</corner>
+                  </corners>
+                  <doc>VBG from 100 to 10 MHz p-p noise, chopper noise, + ac noise</doc>
+               </function>
+            </functions>
+         </group>
+         <group name="Start Up Time">
+            <functions>
+               <function name="TSTART(VBG.v)" symbol="Tstart">
+                  <corners>
+                     <corner req.max="1.5" unit="mS">Typical_Corner</corner>
+                  </corners>
+                  <doc>Power up to VBG settle to 99%</doc>
+               </function>
+            </functions>
+         </group>
+         <group name="Load Regulation">
+            <functions>
+               <function name="Accuracy(VBG.v, Vref.typical)" symbol="Accurcy">
+                  <corners>
+                     <corner test.min="VBG.i = ??" test.max="VBG.i = ???" req.typical="0.1" unit="%"
+                        >Typical_Corner</corner>
+                  </corners>
+                  <doc>VBG Accuracty over load change</doc>
+               </function>
+            </functions>
+         </group>
+      </groups>
+      <features>
+         <feature>2.5V to 5.5V supply voltage</feature>
+         <feature>Low operating current (typical IQ = 5uA)</feature>
+         <feature>`+- 0.2% Accuracy from -20 °C to 120 °C junction temperature with digital TC
+            correction</feature>
+      </features>
+      <applications>
+         <application>ADC</application>
+         <application>DC/DC</application>
+         <application>LDO/Temp sense</application>
+      </applications>
+      <operating_conditions>
+         <symbol name="Symbol">
+            <min>min</min>
+            <typ>typical</typ>
+            <max>max</max>
+            <unit>Unit</unit>
+            <spirit:description>Description</spirit:description>
+         </symbol>
+         <symbol name="Tj">
+            <min>-20.0</min>
+            <max>125.0</max>
+            <unit>°C</unit>
+            <spirit:description>Junction Temperature</spirit:description>
+         </symbol>
+         <symbol name="Ta">
+            <unit>°C</unit>
+            <spirit:description>Ambient Temperature</spirit:description>
+         </symbol>
+         <symbol name="VBAT">
+            <min>2.5</min>
+            <max>5.5</max>
+            <unit>V</unit>
+            <spirit:description>VBAT Voltage Range</spirit:description>
+         </symbol>
+         <symbol name="VBAT">
+            <unit>mA</unit>
+            <spirit:description>VBAT consumption current</spirit:description>
+         </symbol>
+         <symbol name="VBG">
+            <max>8.0</max>
+            <unit>uA</unit>
+            <spirit:description>VBG supply current</spirit:description>
+         </symbol>
+      </operating_conditions>
+      <max_rating>
+         <symbol name="Symbol">
+            <min>min</min>
+            <typ>typical</typ>
+            <max>max</max>
+            <unit>Unit</unit>
+            <spirit:description>Description</spirit:description>
+         </symbol>
+         <symbol name="Tj">
+            <max>150.0</max>
+            <spirit:description>Absolute Maximum Junction Temperature</spirit:description>
+         </symbol>
+         <symbol name="Ts">
+            <min>-65.0</min>
+            <max>150.0</max>
+            <unit>°C</unit>
+            <spirit:description>Storage Temperature</spirit:description>
+         </symbol>
+         <symbol name="VBAT">
+            <min>-0.3</min>
+            <max>6.0</max>
+            <unit>V</unit>
+            <spirit:description>Absolute Maximum VBAT to AGND Voltage</spirit:description>
+         </symbol>
+         <symbol name="VDD">
+            <min>-0.3</min>
+            <max>1.8</max>
+            <unit>V</unit>
+            <spirit:description>Absolute Maximum VDD to DGND Voltage</spirit:description>
+         </symbol>
+      </max_rating>
+      <designers>
+         <designer name="Name">
+            <email>email</email>
+         </designer>
+         <designer name="Wei Chen">
+            <email>wchen@intersil.com</email>
+         </designer>
+      </designers>
+      <dieSize>
+         <area>72000.0</area>
+         <width>600.0</width>
+         <height>120.0</height>
+      </dieSize>
+      <FabProcess>
+         <process name="Process">TSMC 0.13um BCD Cu 1P6M 1.5V/5V/36V with ESD, HiR, 3 Implants, MIM,
+            UTM, OTP 8in - 41L &gt;5000w/month</process>
+         <process name="X Metal Layer">6.0</process>
+         <process name="AM Last Level">No</process>
+         <process name="Filter">No</process>
+         <process name="MiM">Yes</process>
+         <process name="Thick Top Metal">Yes</process>
+         <process name="Deep N Well">Yes</process>
+         <process name="Hi-R Poly">Yes</process>
+         <process name="Automotive Adder">No</process>
+         <process name="Triple Well">No</process>
+         <process name="EPI">Yes</process>
+         <process name="ESD">Yes</process>
+         <process name="Implant/Zener">Yes</process>
+         <process name="Polymide">Yes</process>
+         <process name="BR Cap">No</process>
+         <process name="Dual Metal Inductor">No</process>
+         <process name="Back Side Grind">No</process>
+      </FabProcess>
+      <esd>
+         <symbol name="Symbol">
+            <min>min</min>
+            <typ>typical</typ>
+            <max>max</max>
+            <unit>Unit</unit>
+            <spirit:description>Description</spirit:description>
+         </symbol>
+         <symbol name="HBM">
+            <max>2k</max>
+            <unit>V</unit>
+            <spirit:description>Human Body Model (Tested per JESD22-A114E)</spirit:description>
+         </symbol>
+         <symbol name="CDM">
+            <max>500.0</max>
+            <unit>V</unit>
+            <spirit:description>Charged Device Model (Tested per JESD22-C101)</spirit:description>
+         </symbol>
+         <symbol name="MM">
+            <unit>V</unit>
+            <spirit:description>Machine Model (Tested per JESD22-A115C)</spirit:description>
+         </symbol>
+      </esd>
+   </spirit:vendorExtensions>
+   <spirit:description>The Master Bandgap is the internal reference used through the ISL91305 power
+      management IC.</spirit:description>
+</spirit:component>
